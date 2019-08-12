@@ -12,21 +12,21 @@ class CustomPhoneService: BasePhoneService() {
     override fun onHookEvent(offHook: Boolean) {
         super.onHookEvent(offHook)
 
-        Log.v(TAG, "onHookEvent, offHook = $offHook")
+        log("onHookEvent, offHook = $offHook")
     }
 
 
     override fun onEHSHookEvent(offHook: Boolean) {
         super.onEHSHookEvent(offHook)
 
-        Log.v(TAG, "onEHSHookEvent, offHook = $offHook")
+        log("onEHSHookEvent, offHook = $offHook")
     }
 
 
     override fun onLineStateChanged(lineId: Int, status: Int) {
         super.onLineStateChanged(lineId, status)
 
-        Log.v(TAG, "onLineStateChanged, lineId = $lineId , status = $status")
+        log("onLineStateChanged, lineId = $lineId , status = $status")
     }
 
 
@@ -35,9 +35,13 @@ class CustomPhoneService: BasePhoneService() {
      * else this event will call the system emergency dialer.
      */
     override fun onEmergencyCallButtonClicked(): Boolean {
-
-        Log.v(TAG, "onEmergencyCallButtonClicked")
+        log("onEmergencyCallButtonClicked")
 
         return super.onEmergencyCallButtonClicked()
+    }
+
+    private fun log(msg: String) {
+        Log.v(TAG, msg)
+        FileUtils.writeToExternalNotificationsLog(this, msg)
     }
 }

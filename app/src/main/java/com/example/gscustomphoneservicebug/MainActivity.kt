@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        private const val WRITE_EXTERNAL_PERMISSION_REQUEST = 78696
+        private const val WRITE_EXTERNAL_PERMISSION_REQUEST = 7869
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

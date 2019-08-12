@@ -6,8 +6,11 @@ import android.util.Log
 import java.io.File
 import java.io.IOException
 import java.nio.charset.Charset
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 class FileUtils {
     companion object {
@@ -51,9 +54,9 @@ class FileUtils {
         }
 
         private fun getLogFileDateTimeStampString(): String {
-            val dateTimeFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm:ss")
-            val now = ZonedDateTime.now()
-            return now.format(dateTimeFormatter)
+            val format = SimpleDateFormat("MMM dd yyyy HH:mm:ss", Locale.US)
+            val now = Date()
+            return format.format(now)
         }
     }
 }
