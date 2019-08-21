@@ -6,10 +6,7 @@ import android.util.Log
 import java.io.File
 import java.io.IOException
 import java.nio.charset.Charset
-import java.text.DateFormat
 import java.text.SimpleDateFormat
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 class FileUtils {
@@ -21,11 +18,6 @@ class FileUtils {
             writeToDevLog(context, textToWrite, NOTIFICATIONS_LOGGING_FILENAME)
         }
 
-        /**
-         *  Appends the textToWrite to the argument file name. If the file name does not already
-         *  exist in the hldev folder it will be created.  A time stamp is always prepended to text
-         *  added.
-         */
         private fun writeToDevLog(context: Context, textContent: String, fileName: String) {
             val rootPath = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)?.absolutePath
 
